@@ -63,7 +63,7 @@ class CompanyInfoController extends Controller
             $logo_path = $filePath . $logo_url;
             $db_media_img_path = 'storage/company_logo/' . $logo_url;
             if (!file_exists($filePath)) {
-                mkdir($filePath, 666, true);
+                mkdir($filePath, 777, true);
             }
             $manager = new ImageManager(new Driver());
             $logo_image = $manager->read(file_get_contents($image));

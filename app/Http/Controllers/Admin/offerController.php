@@ -107,7 +107,7 @@ class offerController extends Controller
             $db_media_img_path = 'storage/banner_images/' . $logo_url;
 
             if (!file_exists($filePath)) {
-                mkdir($filePath, 666, true);
+                mkdir($filePath, 777, true);
             }
 
             $manager = new ImageManager(new Driver());

@@ -252,7 +252,7 @@ class ProductController extends Controller
             $db_media_img_path = 'storage/product_images/' . $logo_url;
 
             if (!file_exists($filePath)) {
-                mkdir($filePath, 666, true);
+                mkdir($filePath, 777, true);
             }
             $manager = new ImageManager(new Driver());
             $logo_image = $manager->read(file_get_contents($image));
