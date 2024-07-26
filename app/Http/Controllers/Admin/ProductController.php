@@ -259,9 +259,15 @@ class ProductController extends Controller
             $encode_logo = $logo_image->encode(new WebpEncoder(quality: 70));
             $encode_logo->save($logo_path);
             return $db_media_img_path;
-
-            return $db_media_img_path;
         }
+    }
+
+    public function productDelete(Request $request)
+    {
+        $product = Product::find($request->id);
+        $product->deleted = 1;
+        $product->save();
+        return redirect()->back()->with('success', 'Product Successfully Deleted');
     }
 
     public function productBarcodeGenerate(Request $request)

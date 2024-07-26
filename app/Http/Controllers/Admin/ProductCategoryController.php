@@ -52,10 +52,10 @@ class ProductCategoryController extends Controller
     }
     public function productCategoryDelete(Request $request)
     {
-        $subcategory = ProductSubCategory::find($request->id);
+        $subcategory = ProductCategory::find($request->id);
         $subcategory->deleted = 1;
         $subcategory->save();
-        return redirect()->back()->with('success', 'Subcategory Successfully Deleted');
+        return redirect()->back()->with('success', 'Category Successfully Deleted');
     }
 
 

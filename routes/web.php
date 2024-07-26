@@ -34,7 +34,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', [AdminController::class, 'loginView'])->name('login');
+Route::get('/', [AdminController::class, 'loginView'])->name('ladmin.deleteogin');
 
 Route::post('admin/login', array(AdminController::class, 'loginAdmin'))->name('admin.login');
 
@@ -46,6 +46,7 @@ Route::group(['middleware' => 'authCheck'], function () {
     Route::get('/product/edit/info', [ProductController::class, 'productEditDetails'])->name('product.edit.info');
     Route::get('/product/image/delete', [ProductController::class, 'imageDelete'])->name('product.image.delete');
     Route::post('/product/update', [ProductController::class, 'productUpdate'])->name('admin.edit.product');
+    Route::get('/product/delete', [ProductController::class, 'productDelete'])->name('admin.delete.product');
     Route::get('/product/color', [ProductController::class, 'productColor'])->name('admin.product.color.show');
     Route::post('/product/color/store', [ProductController::class, 'productColorStore'])->name('admin.product.color.store');
     Route::post('/product/color/update', [ProductController::class, 'productColorUpdate'])->name('admin.product.color.update');
